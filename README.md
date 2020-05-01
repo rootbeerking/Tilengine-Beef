@@ -7,16 +7,16 @@
 - Callbacks in src\Tilengine.bf (Line 27-30)
 - src\Enums\Input.bf (Line 20-31)
 - src\Types\Color.bf (Not sure if this file is even needed to be honest.)
-- src\Types\TLN_Bitmap.bf
-- src\Types\TLN_Engine.bf
-- src\Types\TLN_ObjectList.bf
-- src\Types\TLN_Palette.bf
-- src\Types\TLN_Sequence.bf
-- src\Types\TLN_SequencePack.bf
-- src\Types\TLN_Spriteset.bf
-- src\Types\TLN_Tile.bf
-- src\Types\TLN_Tileset.bf
-- src\Types\TLN_Tilemap.bf
+- src\Types\TLN_Bitmap.bf(I don't know how to deal with wrapping Opaque Pointers to Beef Lang)
+- src\Types\TLN_Engine.bf(I don't know how to deal with wrapping Opaque Pointers to Beef Lang)
+- src\Types\TLN_ObjectList.bf(I don't know how to deal with wrapping Opaque Pointers to Beef Lang)
+- src\Types\TLN_Palette.bf(I don't know how to deal with wrapping Opaque Pointers to Beef Lang)
+- src\Types\TLN_Sequence.bf(I don't know how to deal with wrapping Opaque Pointers to Beef Lang)
+- src\Types\TLN_SequencePack.bf(I don't know how to deal with wrapping Opaque Pointers to Beef Lang)
+- src\Types\TLN_Spriteset.bf(I don't know how to deal with wrapping Opaque Pointers to Beef Lang)
+- src\Types\TLN_Tile.bf(I don't know how to deal with wrapping Opaque Pointers to Beef Lang)
+- src\Types\TLN_Tileset.bf(I don't know how to deal with wrapping Opaque Pointers to Beef Lang)
+- src\Types\TLN_Tilemap.bf(I don't know how to deal with wrapping Opaque Pointers to Beef Lang)
 
 ## TODO:
 - Figure out how to finish this wrapper.
