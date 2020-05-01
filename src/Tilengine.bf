@@ -419,7 +419,7 @@ namespace Tilengine
 		public static extern int TLN_GetListNumObjects(TLN_ObjectList list);
 		// // Iterates over elements in a TLN_ObjectList.
 		[CLink]
-		public static extern bool TLN_GetListObject(TLN_ObjectList list, TLN_ObjectInfo* info);
+		public static extern bool TLN_GetListObject(TLN_ObjectList list, ObjectInfo* info);
 		// // Deletes Object List.
 		[CLink]
 		public static extern bool TLN_DeleteObjectList(TLN_ObjectList list);
