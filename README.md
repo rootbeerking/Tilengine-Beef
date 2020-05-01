@@ -1,6 +1,6 @@
 ![](img/Tilengine-logo.png)
 # Tilengine-Beef
-**Tilengine-Beef** is an unfinished Beef wrapper library for **Tilengine 2.7.0** 2D graphics engine. There are a few things I can't figure out how to get working right, so if anyone could take a look and help me out that would be much apperciated.
+**Tilengine-Beef** is an unfinished(broken) Beef wrapper library for **Tilengine 2.7.0** 2D graphics engine. There are a few things I can't figure out how to get working right, so if anyone could take a look and help me out that would be much appreciated.
 
 ## Things that are broken and I have no idea how to fix:
 - Fixed point helper in src\Tilengine.bf (Line 18-24)
