@@ -8,7 +8,7 @@ StartupObject = "Program"
 
 [Configs.Debug.Win64]
 BeefLibType = "DynamicDebug"
-LibPaths = ["$(ProjectDir)/dist/x64/raylib.lib"]
+LibPaths = ["$(ProjectDir)/dist/x64/Tilengine.lib"]
 PostBuildCmds = ["CopyToDependents(\"$(ProjectDir)/dist/x64/*.dll\")"]
 
 [Configs.Debug.Win32]

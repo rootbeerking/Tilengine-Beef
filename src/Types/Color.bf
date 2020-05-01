@@ -3,7 +3,7 @@ using System;
 namespace Tilengine.Types
 {
 	[CRepr]
-	public struct Color		    // Represents a color value in RGB format
+	public struct Color 	// Represents a color value in RGB format
 	{
 	    public int8 R,G,B;
 

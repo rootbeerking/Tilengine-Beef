@@ -1,3 +1,4 @@
+using System;
 namespace Tilengine.Enums
 {
 	public enum Player // Player index for input assignment functions

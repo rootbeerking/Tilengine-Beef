@@ -18,16 +18,17 @@ namespace Tilengine
 		/* fixed point helper */
 		//typedef int fix_t;
 		public const int FIXED_BITS = 16;
-		//#define float2fix(f)	(fix_t)(f*(1 << FIXED_BITS))
-		//#define int2fix(i)		((int)(i) << FIXED_BITS)
-		//#define fix2int(f)		((int)(f) >> FIXED_BITS)
+		//#define float2fix(f)	(fix)(f*(1 << FIXED_BITS))
+		//#define int2fix(i)	((int)(i) << FIXED_BITS)
+		//#define fix2int(f)	((int)(f) >> FIXED_BITS)
 		//#define fix2float(f)	(float)(f)/(1 << FIXED_BITS)
 
 		/* callbacks */
-		/*typedef union SDL_Event SDL_Event;
-		typedef void(*TLN_VideoCallback)(int scanline);
-		typedef uint8_t(*TLN_BlendFunction)(uint8_t src, uint8_t dst);
-		typedef void(*TLN_SDLCallback)(SDL_Event*);*/
+		public delegate void VideoCallback(int scanline);
+		public delegate uint8 BlendFunction(uint8 src, uint8 dst);
+		[Union]
+		public struct SDL_Event;
+		public delegate void SDLCallback(SDL_Event callback);
 
 		// ------------------------------------------------------------------------------------
 		// - Setup
@@ -94,10 +95,10 @@ namespace Tilengine
 		public static extern bool SetBGPalette(TLN_Palette palette);
 		// // Set RasterCallback for Raster Effects
 		[LinkName("TLN_SetRasterCallback")]
-		public static extern void SetRasterCallback(TLN_VideoCallback);
+		public static extern void SetRasterCallback(VideoCallback callback);
 		// // Set Frame Callback
 		[LinkName("TLN_SetFrameCallback")]
-		public static extern void SetFrameCallback(TLN_VideoCallback);
+		public static extern void SetFrameCallback(VideoCallback callback);
 		// // Sets the output surface for rendering. The render target pixel format must be 32 bits RGBA
 		[LinkName("TLN_SetRenderTarget")]
 		public static extern void SetRenderTarget(uint8* data, int pitch);
@@ -117,7 +118,7 @@ namespace Tilengine
 		public static extern void SetLoadPath(char8* path);
 		// // Sets custom blend function to use when Blend.Custom mode is selected.
 		[LinkName("TLN_SetCustomBlendFunction")]
-		public static extern void SetCustomBlendFunction(TLN_BlendFunction);
+		public static extern void SetCustomBlendFunction(BlendFunction callback);
 		// // Sets logging level for current instance.
 		[LinkName("TLN_SetLogLevel")]
 		public static extern void SetLogLevel(LogLevel log_level);
@@ -199,7 +200,7 @@ namespace Tilengine
 		public static extern void DisableCRTEffect();
 		// // Registers a user-defined callback to capture internal SDL2 events.
 		[LinkName("TLN_SetSDLCallback")]
-		public static extern void SetSDLCallback(TLN_SDLCallback);
+		public static extern void SetSDLCallback(SDLCallback callback);	// This might not work... We shall see hopefully.
 		// // Suspends execution for a fixed time.
 		[LinkName("TLN_Delay")]
 		public static extern void Delay(uint32 msecs);
@@ -653,13 +654,13 @@ namespace Tilengine
 		// // Sets the source Palette of a Color Cycle animation.
 		// // Use this function to change the palette assigned to a color cycle animation running. This is useful to combine color cycling and palette interpolation at the same time.
 		[LinkName("TLN_SetPaletteAnimationSource")]
-		public static extern bool SetPaletteAnimationSource(int index, TLN_Palette);
+		public static extern bool SetPaletteAnimationSource(int index, TLN_Palette palette);
 		// // Starts a Tileset animation.
 		[LinkName("TLN_SetTilesetAnimation")]
-		public static extern bool SetTilesetAnimation(int index, int nlayer, TLN_Sequence);
+		public static extern bool SetTilesetAnimation(int index, int nlayer, TLN_Sequence sequence);
 		// // Starts a Tilemap animation.
 		[LinkName("TLN_SetTilemapAnimation")]
-		public static extern bool SetTilemapAnimation(int index, int nlayer, TLN_Sequence);
+		public static extern bool SetTilemapAnimation(int index, int nlayer, TLN_Sequence sequence);
 		// // Starts a Sprite animation.
 		[LinkName("TLN_SetSpriteAnimation")]
 		public static extern bool SetSpriteAnimation(int index, int nsprite, TLN_Sequence sequence, int loop);
