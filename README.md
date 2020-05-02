@@ -18,6 +18,41 @@
 3. **Make** Tilengine **as a dependency** of your project 
 4. Write some code
 
+# Example Code
+```
+using Tilengine;
+using System;
+
+namespace TilengineTest
+{
+	public static class Program : TLN
+	{
+		public static void Main()
+		{
+			Tilengine.Types.TLN_Tilemap foreground;
+			Tilengine.Types.TLN_Tileset tileset;
+			int frame = 0;
+
+			Init(400,240,1,0,20);
+			SetLoadPath("assets/sonic");
+			foreground = LoadTilemap ("Sonic_md_fg1.tmx", null);
+			tileset = LoadTileset("Sonic_md_fg1.tsx");
+			SetLayer (0, tileset, foreground);
+
+			CreateWindow(null, 0);
+
+			while (ProcessWindow())
+			{
+				DrawFrame (frame);
+				frame += 1;
+			}
+			Deinit();
+			
+		}
+	}
+}
+```
+
 # More Info
 - More info about **Tilengine** (https://github.com/megamarc/Tilengine/)
 - More info about **BeefLang** (https://www.beeflang.org)
