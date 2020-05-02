@@ -1,7 +1,10 @@
-using Tilengine.Enums;
+using TLN.Enums;
 using System;
-namespace Tilengine.Types
+namespace TLN.Types
 {
 	[CRepr, Union]
-	public struct TLN_Tile;	// Tile reference
+	public struct TLN_Tile
+	{
+		TLN_Tile* Tile;
+	}	// Tile reference
 }

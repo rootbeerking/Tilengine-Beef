@@ -1,6 +1,6 @@
-using Tilengine.Enums;
+using TLN.Enums;
 using System;
-namespace Tilengine.Types
+namespace TLN.Types
 {
 	[CRepr]
 	public struct SequenceFrame	  // Data used to define each frame of an animation for Sequence objects

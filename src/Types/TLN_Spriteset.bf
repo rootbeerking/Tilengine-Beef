@@ -1,7 +1,10 @@
-using Tilengine.Enums;
+using TLN.Enums;
 using System;
-namespace Tilengine.Types
+namespace TLN.Types
 {
 	[CRepr]
-	public struct TLN_Spriteset;	// Opaque Spriteset reference
+	public struct Spriteset
+	{
+		Spriteset* Spriteset;
+	}	// Opaque Spriteset reference
 }

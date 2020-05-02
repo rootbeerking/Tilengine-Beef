@@ -1,11 +1,11 @@
-using Tilengine.Enums;
+using TLN.Enums;
 using System;
-namespace Tilengine.Types
+namespace TLN.Types
 {
 	[CRepr]
 	public struct TileImage			// Image Tile items for TLN_CreateImageTileset()
 	{
-	    public TLN_Bitmap bitmap;
+	    public Bitmap bitmap;
 		public uint16 id;
 		public uint8	type;
 	}

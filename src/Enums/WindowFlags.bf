@@ -1,4 +1,4 @@
-namespace Tilengine.Enums
+namespace TLN.Enums
 {
 	public enum WindowFlags	  	// List of flag values for window creation
 	{						  	// Can be none or a combination of the following:

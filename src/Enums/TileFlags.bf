@@ -1,4 +1,4 @@
-namespace Tilengine.Enums
+namespace TLN.Enums
 {
 	public enum TileFlags 		  // List of flags for tiles and sprites	
 	{							  // Can be none or a combination of the following:

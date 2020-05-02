@@ -1,7 +1,10 @@
-using Tilengine.Enums;
+using TLN.Enums;
 using System;
-namespace Tilengine.Types
+namespace TLN.Types
 {
 	[CRepr]
-	public struct TLN_Bitmap;	// Opaque Bitmap reference
+	public struct TLN_Bitmap
+	{
+		TLN_Bitmap* Bitmap;
+	}	// Opaque Bitmap reference
 }

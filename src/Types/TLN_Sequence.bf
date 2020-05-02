@@ -1,7 +1,10 @@
-using Tilengine.Enums;
+using TLN.Enums;
 using System;
-namespace Tilengine.Types
+namespace TLN.Types
 {
 	[CRepr]
-	public struct TLN_Sequence;	// Opaque Sequence reference
+	public struct Sequence
+	{
+		Sequence* Sequence;
+	}	// Opaque Sequence reference
 }

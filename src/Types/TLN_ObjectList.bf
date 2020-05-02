@@ -1,7 +1,10 @@
-using Tilengine.Enums;
+using TLN.Enums;
 using System;
-namespace Tilengine.Types
+namespace TLN.Types
 {
 	[CRepr]
-	public struct TLN_ObjectList;	// Opaque Object List reference
+	public struct TLN_ObjectList
+	{
+		TLN_ObjectList* ObjectList;
+	}	// Opaque Object List reference
 }

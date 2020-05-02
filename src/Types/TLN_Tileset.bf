@@ -3,5 +3,8 @@ using System;
 namespace Tilengine.Types
 {
 	[CRepr]
-	public struct TLN_Tileset;	// Opaque Tileset reference
+	public struct TLN_Tileset
+	{
+		TLN_Tileset* Tileset;
+	}	// Opaque Tileset reference
 }

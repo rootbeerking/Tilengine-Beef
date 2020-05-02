@@ -1,6 +1,6 @@
-using Tilengine.Enums;
+using TLN.Enums;
 using System;
-namespace Tilengine.Types
+namespace TLN.Types
 {
 	[CRepr]
 	public struct TileInfo		// Data returned by Layer.GetTile about a given tile inside a background layer

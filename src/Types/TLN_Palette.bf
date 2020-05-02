@@ -1,7 +1,10 @@
-using Tilengine.Enums;
+using TLN.Enums;
 using System;
-namespace Tilengine.Types
+namespace TLN.Types
 {
 	[CRepr]
-	public struct TLN_Palette;	// Opaque Palette reference
+	public struct Palette
+	{
+		Palette* Palette;
+	}	// Opaque Palette reference
 }

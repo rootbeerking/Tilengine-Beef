@@ -1,6 +1,6 @@
-using Tilengine.Enums;
+using TLN.Enums;
 using System;
-namespace Tilengine.Types
+namespace TLN.Types
 {
 	[CRepr]
 	public struct SpriteData // Data used to create Spriteset objects

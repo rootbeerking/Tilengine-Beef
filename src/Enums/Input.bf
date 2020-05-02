@@ -1,5 +1,5 @@
 using System;
-namespace Tilengine.Enums
+namespace TLN.Enums
 {
 	public enum Input		   // Standard inputs query for Window.GetInput()
 	{

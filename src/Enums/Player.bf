@@ -1,5 +1,5 @@
 using System;
-namespace Tilengine.Enums
+namespace TLN.Enums
 {
 	public enum Player // Player index for input assignment functions
 	{

@@ -1,6 +1,6 @@
 using System;
-using Tilengine.Enums;
-using Tilengine.Types;
+using TLN.Enums;
+using TLN.Types;
 namespace Tilengine
 {
 	public class TLN
@@ -38,19 +38,19 @@ namespace Tilengine
 		// // Initializes the graphic engine in 32 bpp pixel format.
 		// // Creates the Viewport with the specified dimensions and allocates the number of Layers, Sprites and Animation slots.
 		[LinkName("TLN_Init")]
-		public static extern TLN_Engine Init(int hres, int vres, int numlayers, int numsprites, int numanimations);
+		public static extern Engine Init(int hres, int vres, int numlayers, int numsprites, int numanimations);
 		// // Deinitializes current engine context and frees used resources.
 		[LinkName("TLN_Deinit")]
 		public static extern void Deinit();
 		// // Deletes explicit context.
 		[LinkName("TLN_DeleteContext")]
-		public static extern bool DeleteContext (TLN_Engine context);
+		public static extern bool DeleteContext (Engine context);
 		// // Sets current engine context.
 		[LinkName("TLN_SetContext")]
-		public static extern bool SetContext(TLN_Engine context);
+		public static extern bool SetContext(Engine context);
 		// // Returns the current engine context.
 		[LinkName("TLN_GetContext")]
-		public static extern TLN_Engine GetContext();
+		public static extern Engine GetContext();
 		// // Returns the Width in pixels of the framebuffer.
 		[LinkName("TLN_GetWidth")]
 		public static extern int GetWidth();
@@ -81,7 +81,7 @@ namespace Tilengine
 		public static extern void SetBGColor(uint8 r, uint8 g, uint8 b);
 		// // Sets the background color from a Tilemap defined color.
 		[LinkName("TLN_SetBGColorFromTilemap")]
-		public static extern bool SetBGColorFromTilemap(TLN_Tilemap tilemap);
+		public static extern bool SetBGColorFromTilemap(Tilemap tilemap);
 		// // Disables background color rendering.
 		// // If you know that the last background layer will always cover the entire screen, you can disable it to gain some performance.
 		[LinkName("TLN_DisableBGColor")]
@@ -89,10 +89,10 @@ namespace Tilengine
 		// // Sets a static Bitmap as background.
 		// // Sets an optional Bitmap instead of a solid color where there is no Layer or Sprite. Unlike Tilemaps or Sprites, this Bitmap cannot be moved and has no transparency
 		[LinkName("TLN_SetBGBitmap")]
-		public static extern bool SetBGBitmap(TLN_Bitmap bitmap);
+		public static extern bool SetBGBitmap(Bitmap bitmap);
 		// // Changes the Palette for the background Bitmap.
 		[LinkName("TLN_SetBGPalette")]
-		public static extern bool SetBGPalette(TLN_Palette palette);
+		public static extern bool SetBGPalette(Palette palette);
 		// // Set RasterCallback for Raster Effects
 		[LinkName("TLN_SetRasterCallback")]
 		public static extern void SetRasterCallback(VideoCallback callback);
@@ -226,29 +226,29 @@ namespace Tilengine
 		// ------------------------------------------------------------------------------------
 		// // Creates a new Spriteset.
 		[LinkName("TLN_CreateSpriteset")]
-		public static extern TLN_Spriteset CreateSpriteset(TLN_Bitmap bitmap, SpriteData* data, int num_entries);
+		public static extern Spriteset CreateSpriteset(Bitmap bitmap, SpriteData* data, int num_entries);
 		// // Loads a Spriteset from an image png and its associated atlas descriptor.
 		// // The Spriteset comes in a pair of files: an image file (bmp or png) and a standardized atlas descriptor (json, csv or txt) The supported json format is the array.
 		[LinkName("TLN_LoadSpriteset")]
-		public static extern TLN_Spriteset LoadSpriteset(char8* name);
+		public static extern Spriteset LoadSpriteset(char8* name);
 		// // Creates a duplicate of the specified Spriteset and its associated Palette.
 		[LinkName("TLN_CloneSpriteset")]
-		public static extern TLN_Spriteset CloneSpriteset(TLN_Spriteset src);
+		public static extern Spriteset CloneSpriteset(Spriteset src);
 		// // Query the details about the specified Sprite inside a Spriteset.
 		[LinkName("TLN_GetSpriteInfo")]
-		public static extern bool GetSpriteInfo (TLN_Spriteset spriteset, int entry, SpriteInfo* info);
+		public static extern bool GetSpriteInfo (Spriteset spriteset, int entry, SpriteInfo* info);
 		// // Returns a reference to the Palette associated to the specified Spriteset.
 		[LinkName("TLN_GetSpritesetPalette")]
-		public static extern TLN_Palette GetSpritesetPalette(TLN_Spriteset spriteset);
+		public static extern Palette GetSpritesetPalette(Spriteset spriteset);
 		// // Returns a reference to the Palette associated to the specified Spriteset.
 		[LinkName("TLN_FindSpritesetSprite")]
-		public static extern int FindSpritesetSprite(TLN_Spriteset spriteset, char8* name);
+		public static extern int FindSpritesetSprite(Spriteset spriteset, char8* name);
 		// // Sets attributes and pixels of a given Sprite inside a Spriteset.
 		[LinkName("TLN_SetSpritesetData")]
-		public static extern bool SetSpritesetData(TLN_Spriteset spriteset, int entry, SpriteData* data, void* pixels, int pitch);
+		public static extern bool SetSpritesetData(Spriteset spriteset, int entry, SpriteData* data, void* pixels, int pitch);
 		// // Deletes the specified Spriteset and frees memory.
 		[LinkName("TLN_DeleteSpriteset")]
-		public static extern bool DeleteSpriteset(TLN_Spriteset Spriteset);
+		public static extern bool DeleteSpriteset(Spriteset Spriteset);
 
 		// ------------------------------------------------------------------------------------
 		// - Tileset
@@ -256,40 +256,40 @@ namespace Tilengine
 		// ------------------------------------------------------------------------------------
 		// // Creates a tile-based Tileset.
 		[LinkName("TLN_CreateTileset")]
-		public static extern TLN_Tileset CreateTileset(int numtiles, int width, int height, TLN_Palette palette, TLN_SequencePack sp, TileAttributes* attributes);
+		public static extern Tileset CreateTileset(int numtiles, int width, int height, Palette palette, SequencePack sp, TileAttributes* attributes);
 		// // Creates a multiple image-based Tileset.
 		[LinkName("TLN_CreateImageTileset")]
-		public static extern TLN_Tileset CreateImageTileset(int numtiles, TileImage* images);
+		public static extern Tileset CreateImageTileset(int numtiles, TileImage* images);
 		// // Loads a tileset from a Tiled .tsx file.
 		[LinkName("TLN_LoadTileset")]
-		public static extern TLN_Tileset LoadTileset(char8* filename);
+		public static extern Tileset LoadTileset(char8* filename);
 		// // Creates a duplicate of the specified Tileset and its associated palette.
 		[LinkName("TLN_CloneTileset")]
-		public static extern TLN_Tileset CloneTileset(TLN_Tileset src);
+		public static extern Tileset CloneTileset(Tileset src);
 		// // Sets pixel data for a tile in a Tileset.
 		[LinkName("TLN_SetTilesetPixels")]
-		public static extern bool SetTilesetPixels(TLN_Tileset tileset, int entry, uint8* srcdata, int srcpitch);
+		public static extern bool SetTilesetPixels(Tileset tileset, int entry, uint8* srcdata, int srcpitch);
 		// // Copies tile graphic data inside a Tileset specified tileset.
 		[LinkName("TLN_CopyTile")]
-		public static extern bool CopyTile(TLN_Tileset tileset, int src, int dst);
+		public static extern bool CopyTile(Tileset tileset, int src, int dst);
 		// // Returns the width in pixels of each individual Tile in the tileset.
 		[LinkName("TLN_GetTileWidth")]
-		public static extern int GetTileWidth(TLN_Tileset tileset);
+		public static extern int GetTileWidth(Tileset tileset);
 		// // Returns the height in pixels of each individual tile in the tileset.
 		[LinkName("TLN_GetTileHeight")]
-		public static extern int GetTileHeight(TLN_Tileset tileset);
+		public static extern int GetTileHeight(Tileset tileset);
 		// // Returns the number of different tiles in tileset.
 		[LinkName("TLN_GetTilesetNumTiles")]
-		public static extern int GetTilesetNumTiles(TLN_Tileset tileset);
+		public static extern int GetTilesetNumTiles(Tileset tileset);
 		// // Returns a reference to the Palette associated to the specified tileset.
 		[LinkName("TLN_GetTilesetPalette")]
-		public static extern TLN_Palette GetTilesetPalette(TLN_Tileset tileset);
+		public static extern Palette GetTilesetPalette(Tileset tileset);
 		// // Returns a reference to the optional sequence pack associated to the specified tileset.
 		[LinkName("TLN_GetTilesetSequencePack")]
-		public static extern TLN_SequencePack GetTilesetSequencePack(TLN_Tileset tileset);
+		public static extern SequencePack GetTilesetSequencePack(Tileset tileset);
 		// // Deletes the specified tileset and frees memory.
 		[LinkName("TLN_DeleteTileset")]
-		public static extern bool DeleteTileset(TLN_Tileset tileset);
+		public static extern bool DeleteTileset(Tileset tileset);
 
 		// ------------------------------------------------------------------------------------
 		// - Tilemap
@@ -297,34 +297,34 @@ namespace Tilengine
 		// ------------------------------------------------------------------------------------
 		// // Creates a new tilemap. Make sure that the tiles[] array is has at least rows*cols items or application may crash
 		[LinkName("TLN_CreateTilemap")]
-		public static extern TLN_Tilemap CreateTilemap(int rows, int cols, TLN_Tile tiles, uint32 bgcolor, TLN_Tileset tileset);
+		public static extern Tilemap CreateTilemap(int rows, int cols, TLN_Tile tiles, uint32 bgcolor, Tileset tileset);
 		// // Loads a tilemap layer from a Tiled .tmx file.
 		[LinkName("TLN_LoadTilemap")]
-		public static extern TLN_Tilemap LoadTilemap(char8* filename, char8* layername);
+		public static extern Tilemap LoadTilemap(char8* filename, char8* layername);
 		// // Creates a duplicate of the specified tilemap.
 		[LinkName("TLN_CloneTilemap")]
-		public static extern TLN_Tilemap CloneTilemap(TLN_Tilemap src);
+		public static extern Tilemap CloneTilemap(Tilemap src);
 		// // Returns the number of vertical tiles in the tilemap.
 		[LinkName("TLN_GetTilemapRows")]
-		public static extern int GetTilemapRows(TLN_Tilemap tilemap);
+		public static extern int GetTilemapRows(Tilemap tilemap);
 		// // Returns the number of horizontal tiles in the tilemap.
 		[LinkName("TLN_GetTilemapCols")]
-		public static extern int GetTilemapCols(TLN_Tilemap tilemap);
+		public static extern int GetTilemapCols(Tilemap tilemap);
 		// // Returns the optional associated tileset to the specified tilemap.
 		[LinkName("TLN_GetTilemapTileset")]
-		public static extern TLN_Tileset GetTilemapTileset(TLN_Tilemap tilemap);
+		public static extern Tileset GetTilemapTileset(Tilemap tilemap);
 		// // Gets data of a single tile inside a tilemap.
 		[LinkName("TLN_GetTilemapTile")]
-		public static extern bool GetTilemapTile(TLN_Tilemap tilemap, int row, int col, TLN_Tile tile);
+		public static extern bool GetTilemapTile(Tilemap tilemap, int row, int col, TLN_Tile tile);
 		// // Sets a tile of a tilemap.
 		[LinkName("TLN_SetTilemapTile")]
-		public static extern bool SetTilemapTile(TLN_Tilemap tilemap, int row, int col, TLN_Tile tile);
+		public static extern bool SetTilemapTile(Tilemap tilemap, int row, int col, TLN_Tile tile);
 		// // Copies blocks of tiles between two tilemaps.
 		[LinkName("TLN_CopyTiles")]
-		public static extern bool CopyTiles(TLN_Tilemap src, int srcrow, int srccol, int rows, int cols, TLN_Tilemap dst, int dstrow, int dstcol);
+		public static extern bool CopyTiles(Tilemap src, int srcrow, int srccol, int rows, int cols, Tilemap dst, int dstrow, int dstcol);
 		// // Deletes the specified tilemap and frees memory.
 		[LinkName("TLN_DeleteTilemap")]
-		public static extern bool DeleteTilemap(TLN_Tilemap tilemap);
+		public static extern bool DeleteTilemap(Tilemap tilemap);
 
 		// ------------------------------------------------------------------------------------
 		// - Palette
@@ -332,34 +332,34 @@ namespace Tilengine
 		// ------------------------------------------------------------------------------------
 		// // Creates a new color table.
 		[LinkName("TLN_CreatePalette")]
-		public static extern TLN_Palette CreatePalette(int entries);
+		public static extern Palette CreatePalette(int entries);
 		// // Loads a palette from a standard .act file.
 		[LinkName("TLN_LoadPalette")]
-		public static extern TLN_Palette LoadPalette(char8* filename);
+		public static extern Palette LoadPalette(char8* filename);
 		// // Creates a duplicate of the specified palette.
 		[LinkName("TLN_ClonePalette")]
-		public static extern TLN_Palette ClonePalette(TLN_Palette src);
+		public static extern Palette ClonePalette(Palette src);
 		// // Sets the RGB color value of a palette entry.
 		[LinkName("TLN_SetPaletteColor")]
-		public static extern bool SetPaletteColor(TLN_Palette palette, int color, uint8 r, uint8 g, uint8 b);
+		public static extern bool SetPaletteColor(Palette palette, int color, uint8 r, uint8 g, uint8 b);
 		// // Mixes two palettes to create a third one.
 		[LinkName("TLN_MixPalettes")]
-		public static extern bool MixPalettes(TLN_Palette src1, TLN_Palette src2, TLN_Palette dst, uint8 factor);
+		public static extern bool MixPalettes(Palette src1, Palette src2, Palette dst, uint8 factor);
 		// // Modifies a range of colors by adding the provided color value to the selected range. The result is always a brighter color.
 		[LinkName("TLN_AddPaletteColor")]
-		public static extern bool AddPaletteColor(TLN_Palette palette, uint8 r, uint8 g, uint8 b, uint8 start, uint8 num);
+		public static extern bool AddPaletteColor(Palette palette, uint8 r, uint8 g, uint8 b, uint8 start, uint8 num);
 		// Modifies a range of colors by subtracting the provided color value to the selected range. The result is always a darker color.
 		[LinkName("TLN_SubPaletteColor")]
-		public static extern bool SubPaletteColor(TLN_Palette palette, uint8 r, uint8 g, uint8 b, uint8 start, uint8 num);
+		public static extern bool SubPaletteColor(Palette palette, uint8 r, uint8 g, uint8 b, uint8 start, uint8 num);
 		// // Modifies a range of colors by modulating (normalized product) the provided color value to the selected range. The result is always a darker color.
 		[LinkName("TLN_ModPaletteColor")]
-		public static extern bool ModPaletteColor(TLN_Palette palette, uint8 r, uint8 g, uint8 b, uint8 start, uint8 num);
+		public static extern bool ModPaletteColor(Palette palette, uint8 r, uint8 g, uint8 b, uint8 start, uint8 num);
 		// // Returns the color value of a palette entry.
 		[LinkName("TLN_GetPaletteData")]
-		public static extern uint8* GetPaletteData(TLN_Palette palette, int index);
+		public static extern uint8* GetPaletteData(Palette palette, int index);
 		// // Deletes the specified palette and frees memory.
 		[LinkName("TLN_DeletePalette")]
-		public static extern bool DeletePalette(TLN_Palette palette);
+		public static extern bool DeletePalette(Palette palette);
 
 		// ------------------------------------------------------------------------------------
 		// - Bitmap
@@ -367,63 +367,63 @@ namespace Tilengine
 		// ------------------------------------------------------------------------------------
 		// // Creates a memory Bitmap.
 		[LinkName("TLN_CreateBitmap")]
-		public static extern TLN_Bitmap CreateBitmap(int width, int height, int bpp);
+		public static extern Bitmap CreateBitmap(int width, int height, int bpp);
 		// // Load image file (8-bit BMP or PNG)
 		[LinkName("TLN_LoadBitmap")]
-		public static extern TLN_Bitmap LoadBitmap(char8* filename);
+		public static extern Bitmap LoadBitmap(char8* filename);
 		// // Creates a copy of a Bitmap.
 		[LinkName("TLN_CloneBitmap")]
-		public static extern TLN_Bitmap CloneBitmap(TLN_Bitmap src);
+		public static extern Bitmap CloneBitmap(Bitmap src);
 		// // Gets memory access for direct pixel manipulation.
 		[LinkName("TLN_GetBitmapPtr")]
-		public static extern uint8* GetBitmapPtr(TLN_Bitmap bitmap, int x, int y);
+		public static extern uint8* GetBitmapPtr(Bitmap bitmap, int x, int y);
 		// // Returns the Width in pixels.
 		[LinkName("TLN_GetBitmapWidth")]
-		public static extern int GetBitmapWidth(TLN_Bitmap bitmap);
+		public static extern int GetBitmapWidth(Bitmap bitmap);
 		// // Returns the Height in pixels.
 		[LinkName("TLN_GetBitmapHeight")]
-		public static extern int GetBitmapHeight(TLN_Bitmap bitmap);
+		public static extern int GetBitmapHeight(Bitmap bitmap);
 		// // Returns the bits per pixel.
 		[LinkName("TLN_GetBitmapDepth")]
-		public static extern int GetBitmapDepth(TLN_Bitmap bitmap);
+		public static extern int GetBitmapDepth(Bitmap bitmap);
 		// // Returns the number of bytes per scanline (also known a stride)
 		[LinkName("TLN_GetBitmapPitch")]
-		public static extern int GetBitmapPitch(TLN_Bitmap bitmap);
+		public static extern int GetBitmapPitch(Bitmap bitmap);
 		// // Gets the associated Palette of a bitmap.
 		[LinkName("TLN_GetBitmapPalette")]
-		public static extern TLN_Palette GetBitmapPalette(TLN_Bitmap bitmap);
+		public static extern Palette GetBitmapPalette(Bitmap bitmap);
 		// // Assigns a new Palette to the bitmap.
 		[LinkName("TLN_SetBitmapPalette")]
-		public static extern bool SetBitmapPalette(TLN_Bitmap bitmap, TLN_Palette palette);
+		public static extern bool SetBitmapPalette(Bitmap bitmap, Palette palette);
 		// // Deletes bitmap and frees resources.
 		[LinkName("TLN_DeleteBitmap")]
-		public static extern bool DeleteBitmap(TLN_Bitmap bitmap);
+		public static extern bool DeleteBitmap(Bitmap bitmap);
 
 		// ------------------------------------------------------------------------------------
 		// - Objects
 		// -	ObjectList resources management.
 		// ------------------------------------------------------------------------------------
-		// // Creates a TLN_ObjectList The list is created empty, it must be populated with TLN_AddSpriteToList() and assigned to a layer with TLN_SetLayerObjects()
+		// // Creates a ObjectList The list is created empty, it must be populated with TLN_AddSpriteToList() and assigned to a layer with TLN_SetLayerObjects()
 		[LinkName("TLN_CreateObjectList")]
-		public static extern TLN_ObjectList CreateObjectList();
-		// // Adds an image-based Tileset item to given TLN_ObjectList.
+		public static extern ObjectList CreateObjectList();
+		// // Adds an image-based Tileset item to given ObjectList.
 		[LinkName("TLN_AddTileObjectToList")]
-		public static extern bool AddTileObjectToList(TLN_ObjectList list, uint16 id, uint16 gid, uint16 flags, int x, int y);
+		public static extern bool AddTileObjectToList(ObjectList list, uint16 id, uint16 gid, uint16 flags, int x, int y);
 		// // Loads an Object List from a Tiled Object Layer.
 		[LinkName("TLN_LoadObjectList")]
-		public static extern TLN_ObjectList LoadObjectList(char8* filename, char8* layername);
-		// // Creates a duplicate of a given TLN_ObjectList Object.
+		public static extern ObjectList LoadObjectList(char8* filename, char8* layername);
+		// // Creates a duplicate of a given ObjectList Object.
 		[LinkName("TLN_CloneObjectList")]
-		public static extern TLN_ObjectList CloneObjectList(TLN_ObjectList src);
-		// // Returns number of items in TLN_ObjectList.
+		public static extern ObjectList CloneObjectList(ObjectList src);
+		// // Returns number of items in ObjectList.
 		[LinkName("TLN_GetListNumObjects")]
-		public static extern int GetListNumObjects(TLN_ObjectList list);
-		// // Iterates over elements in a TLN_ObjectList.
+		public static extern int GetListNumObjects(ObjectList list);
+		// // Iterates over elements in a ObjectList.
 		[LinkName("TLN_GetListObject")]
-		public static extern bool GetListObject(TLN_ObjectList list, ObjectInfo* info);
+		public static extern bool GetListObject(ObjectList list, ObjectInfo* info);
 		// // Deletes Object List.
 		[LinkName("TLN_DeleteObjectList")]
-		public static extern bool DeleteObjectList(TLN_ObjectList list);
+		public static extern bool DeleteObjectList(ObjectList list);
 
 		// ------------------------------------------------------------------------------------
 		// - Layers
@@ -432,17 +432,17 @@ namespace Tilengine
 		// // Configures a background layer with the specified tileset and tilemap.
 		// // This function doesn't modify the current position nor the blend mode, but assigns the palette of the specified tileset.
 		[LinkName("TLN_SetLayer")]
-		public static extern bool SetLayer(int nlayer, TLN_Tileset tileset, TLN_Tilemap tilemap);
+		public static extern bool SetLayer(int nlayer, Tileset tileset, Tilemap tilemap);
 		// // Configures a background layer with the specified full bitmap.
 		// // This function doesn't modify the current position nor the blend mode, but assigns the palette of the specified bitmap.
 		[LinkName("TLN_SetLayerBitmap")]
-		public static extern bool SetLayerBitmap(int nlayer, TLN_Bitmap bitmap);
+		public static extern bool SetLayerBitmap(int nlayer, Bitmap bitmap);
 		// // Sets the color palette to the layer.
 		// // When a layer is assigned with a tileset with the function TLN_SetLayer(), it automatically sets the palette of the assigned tileset to the layer.
 		// // Use this function to override it and set another palette
 		// // Call this function inside a raster callback to change the palette in the middle of the frame to get raster effect colors, like and "underwater" palette below the water line in a partially submerged background, or a gradient palette in an area at the top of the screen to simulate a "depth fog effect" in a pseudo 3d background
 		[LinkName("TLN_SetLayerPalette")]
-		public static extern bool SetLayerPalette(int nlayer, TLN_Palette palette);
+		public static extern bool SetLayerPalette(int nlayer, Palette palette);
 		// // Sets the position of the tileset that corresponds to the upper left corner.
 		// // The tileset usually spans an area much bigger than the viewport. Use this function to move the viewport insde the tileset. Change this value progressively for each frame to get a scrolling effect.
 		// // Call this function inside a raster callback to get a raster scrolling effect. Use this to create horizontal strips of the same layer that move at different speeds to simulate depth. The extreme case of this effect, where the position is changed in each scanline, is called "line scroll" and was the technique used by games such as Street Fighter II to simualte a pseudo 3d floor, or many racing games to simulate a 3D road.
@@ -489,7 +489,7 @@ namespace Tilengine
 		public static extern bool ResetLayerMode(int nlayer);
 		// // Configures a background layer with a object list and an image-based tileset.
 		[LinkName("TLN_SetLayerObjects")]
-		public static extern bool SetLayerObjects(int nlayer, TLN_ObjectList objects, TLN_Tileset tileset);
+		public static extern bool SetLayerObjects(int nlayer, ObjectList objects, Tileset tileset);
 		// // Sets full Layer priority, appearing in front of Sprites.
 		[LinkName("TLN_SetLayerPriority")]
 		public static extern bool SetLayerPriority(int nlayer, bool enable);
@@ -505,7 +505,7 @@ namespace Tilengine
 		public static extern bool DisableLayer(int nlayer);
 		// // Gets the attached Palette of a Layer.
 		[LinkName("TLN_GetLayerPalette")]
-		public static extern TLN_Palette GetLayerPalette(int nlayer);
+		public static extern Palette GetLayerPalette(int nlayer);
 		// // Gets info about the tile located in Tilemap space.
 		// // Use this function to implement collision detection between sprites and the main background layer.
 		[LinkName("TLN_GetLayerTile")]
@@ -523,10 +523,10 @@ namespace Tilengine
 		// ------------------------------------------------------------------------------------
 		// // Configures a Sprite, setting Spriteset and flags at once
 		[LinkName("TLN_ConfigSprite")]
-		public static extern bool ConfigSprite(int nsprite, TLN_Spriteset spriteset, TileFlags flags);
+		public static extern bool ConfigSprite(int nsprite, Spriteset spriteset, TileFlags flags);
 		// // Assigns the spriteset and its palette to a given sprite.
 		[LinkName("TLN_SetSpriteSet")]
-		public static extern bool SetSpriteSet(int nsprite, TLN_Spriteset spriteset);
+		public static extern bool SetSpriteSet(int nsprite, Spriteset spriteset);
 		// // Sets flags for a given sprite.
 		[LinkName("TLN_SetSpriteFlags")]
 		public static extern bool SetSpriteFlags(int nsprite, TileFlags flags);
@@ -539,7 +539,7 @@ namespace Tilengine
 		public static extern bool SetSpritePicture(int nsprite, int entry);
 		// // Assigns a palette to a sprite.
 		[LinkName("TLN_SetSpritePalette")]
-		public static extern bool SetSpritePalette(int nsprite, TLN_Palette palette);
+		public static extern bool SetSpritePalette(int nsprite, Palette palette);
 		// // Sets the blending mode (transparency effect).
 		[LinkName("TLN_SetSpriteBlendMode")]
 		public static extern bool SetSpriteBlendMode(int nsprite, Blend mode, uint8 factor);
@@ -590,7 +590,7 @@ namespace Tilengine
 		public static extern bool DisableSprite(int nsprite);
 		// // Gets the palette assigned to a given Sprite.
 		[LinkName("TLN_GetSpritePalette")]
-		public static extern TLN_Palette GetSpritePalette(int nsprite);
+		public static extern Palette GetSpritePalette(int nsprite);
 
 		// ------------------------------------------------------------------------------------
 		// - Sequences
@@ -599,23 +599,23 @@ namespace Tilengine
 		// // Creates a new Sequence for the animation engine.
 		// // Use this function to create Tileset or Sprite animations
 		[LinkName("TLN_CreateSequence")]
-		public static extern TLN_Sequence CreateSequence(char8* name, int target, int num_frames, SequenceFrame* frames);
+		public static extern Sequence CreateSequence(char8* name, int target, int num_frames, SequenceFrame* frames);
 		// // Creates a Color Cycle Sequence for Palette animation.
 		// // Use this function to create advanced Palette animation effects.
 		[LinkName("TLN_CreateCycle")]
-		public static extern TLN_Sequence CreateCycle(char8* name, int num_strips, ColorStrip* strips);
+		public static extern Sequence CreateCycle(char8* name, int num_strips, ColorStrip* strips);
 		// // Creates a name based Sprite Sequence.
 		[LinkName("TLN_CreateSpriteSequence")]
-		public static extern TLN_Sequence CreateSpriteSequence(char8* name, TLN_Spriteset spriteset, char8* basename, int delay);
+		public static extern Sequence CreateSpriteSequence(char8* name, Spriteset spriteset, char8* basename, int delay);
 		// // Creates a duplicate of the specified Sequence.
 		[LinkName("TLN_CloneSequence")]
-		public static extern TLN_Sequence CloneSequence(TLN_Sequence src);
+		public static extern Sequence CloneSequence(Sequence src);
 		// // Returns runtime info about a given Sequence.
 		[LinkName("TLN_GetSequenceInfo")]
-		public static extern bool GetSequenceInfo(TLN_Sequence sequence, SequenceInfo* info);
+		public static extern bool GetSequenceInfo(Sequence sequence, SequenceInfo* info);
 		// // Deletes the sequence and frees resources.
 		[LinkName("TLN_DeleteSequence")]
-		public static extern bool DeleteSequence(TLN_Sequence sequence);
+		public static extern bool DeleteSequence(Sequence sequence);
 
 		// ------------------------------------------------------------------------------------
 		// - SequencePacks
@@ -623,26 +623,26 @@ namespace Tilengine
 		// ------------------------------------------------------------------------------------
 		// // Creates a new collection of Sequences.
 		[LinkName("TLN_CreateSequencePack")]
-		public static extern TLN_SequencePack CreateSequencePack();
+		public static extern SequencePack CreateSequencePack();
 		// // Loads a .sqx file containing one or more Sequences.
-		// // A SQX file can contain many sequences. This function loads all of them inside a single TLN_SequencePack(). Individual Sequences can be later queried with TLN_FindSequence()
+		// // A SQX file can contain many sequences. This function loads all of them inside a single SequencePack(). Individual Sequences can be later queried with TLN_FindSequence()
 		[LinkName("TLN_LoadSequencePack")]
-		public static extern TLN_SequencePack LoadSequencePack(char8* filename);
+		public static extern SequencePack LoadSequencePack(char8* filename);
 		// // Returns the nth Sequence inside a Sequence Pack.
 		[LinkName("TLN_GetSequence")]
-		public static extern TLN_Sequence GetSequence(TLN_SequencePack sp, int index);
+		public static extern Sequence GetSequence(SequencePack sp, int index);
 		// // Finds a Sequence inside a Sequence Pack.
 		[LinkName("TLN_FindSequence")]
-		public static extern TLN_Sequence FindSequence(TLN_SequencePack sp, char8* name);
+		public static extern Sequence FindSequence(SequencePack sp, char8* name);
 		// // Returns the number of Sequences inside a Sequence Pack.
 		[LinkName("TLN_GetSequencePackCount")]
-		public static extern int GetSequencePackCount(TLN_SequencePack sp);
+		public static extern int GetSequencePackCount(SequencePack sp);
 		// // Adds a Sequence to a Sequence Pack.
 		[LinkName("TLN_AddSequenceToPack")]
-		public static extern bool AddSequenceToPack(TLN_SequencePack sp, TLN_Sequence sequence);
+		public static extern bool AddSequenceToPack(SequencePack sp, Sequence sequence);
 		// // Deletes the specified Sequence Pack and frees memory.
 		[LinkName("TLN_DeleteSequencePack")]
-		public static extern bool DeleteSequencePack(TLN_SequencePack sp);
+		public static extern bool DeleteSequencePack(SequencePack sp);
 
 		// ------------------------------------------------------------------------------------
 		// - Animations
@@ -650,20 +650,20 @@ namespace Tilengine
 		// ------------------------------------------------------------------------------------
 		// // Starts a Palette animation.
 		[LinkName("TLN_SetPaletteAnimation")]
-		public static extern bool SetPaletteAnimation(int index, TLN_Palette palette, TLN_Sequence sequence, bool blend);
+		public static extern bool SetPaletteAnimation(int index, Palette palette, Sequence sequence, bool blend);
 		// // Sets the source Palette of a Color Cycle animation.
 		// // Use this function to change the palette assigned to a color cycle animation running. This is useful to combine color cycling and palette interpolation at the same time.
 		[LinkName("TLN_SetPaletteAnimationSource")]
-		public static extern bool SetPaletteAnimationSource(int index, TLN_Palette palette);
+		public static extern bool SetPaletteAnimationSource(int index, Palette palette);
 		// // Starts a Tileset animation.
 		[LinkName("TLN_SetTilesetAnimation")]
-		public static extern bool SetTilesetAnimation(int index, int nlayer, TLN_Sequence sequence);
+		public static extern bool SetTilesetAnimation(int index, int nlayer, Sequence sequence);
 		// // Starts a Tilemap animation.
 		[LinkName("TLN_SetTilemapAnimation")]
-		public static extern bool SetTilemapAnimation(int index, int nlayer, TLN_Sequence sequence);
+		public static extern bool SetTilemapAnimation(int index, int nlayer, Sequence sequence);
 		// // Starts a Sprite animation.
 		[LinkName("TLN_SetSpriteAnimation")]
-		public static extern bool SetSpriteAnimation(int index, int nsprite, TLN_Sequence sequence, int loop);
+		public static extern bool SetSpriteAnimation(int index, int nsprite, Sequence sequence, int loop);
 		// // Checks the state of the specified animation.
 		[LinkName("TLN_GetAnimationState")]
 		public static extern bool GetAnimationState(int index);

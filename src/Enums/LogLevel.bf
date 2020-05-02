@@ -1,4 +1,4 @@
-namespace Tilengine.Enums
+namespace TLN.Enums
 {
 	public enum LogLevel // Debug level
 	{

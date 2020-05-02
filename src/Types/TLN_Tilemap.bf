@@ -3,5 +3,8 @@ using System;
 namespace Tilengine.Types
 {
 	[CRepr]
-	public struct TLN_Tilemap;	// Opaque Tilemap reference
+	public struct TLN_Tilemap
+	{
+		TLN_Tilemap* Tilemap;
+	}	// Opaque Tilemap reference
 }

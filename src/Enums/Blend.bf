@@ -1,5 +1,5 @@
 using System;
-namespace Tilengine.Enums
+namespace TLN.Enums
 {
 	[AllowDuplicates]
 	public enum Blend // Layer blend modes for Layers and Sprites.
