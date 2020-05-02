@@ -6,16 +6,6 @@
 - Fixed point helper in src\Tilengine.bf (Line 18-24)
 - Callbacks in src\Tilengine.bf (Line 27-31, I'm not sure I implemented these correctly, they could be working, they could be broken, I'm not 100% sure at the moment)
 - src\Enums\Input.bf (Line 20-32)
-- src\Types\TLN_Bitmap.bf(I don't know how to deal with wrapping Opaque Pointers to Beef Lang)
-- src\Types\TLN_Engine.bf(I don't know how to deal with wrapping Opaque Pointers to Beef Lang)
-- src\Types\TLN_ObjectList.bf(I don't know how to deal with wrapping Opaque Pointers to Beef Lang)
-- src\Types\TLN_Palette.bf(I don't know how to deal with wrapping Opaque Pointers to Beef Lang)
-- src\Types\TLN_Sequence.bf(I don't know how to deal with wrapping Opaque Pointers to Beef Lang)
-- src\Types\TLN_SequencePack.bf(I don't know how to deal with wrapping Opaque Pointers to Beef Lang)
-- src\Types\TLN_Spriteset.bf(I don't know how to deal with wrapping Opaque Pointers to Beef Lang)
-- src\Types\TLN_Tile.bf(I don't know how to deal with wrapping Opaque Pointers to Beef Lang)
-- src\Types\TLN_Tileset.bf(I don't know how to deal with wrapping Opaque Pointers to Beef Lang)
-- src\Types\TLN_Tilemap.bf(I don't know how to deal with wrapping Opaque Pointers to Beef Lang)
 
 ## TODO:
 - Figure out how to finish this wrapper.
