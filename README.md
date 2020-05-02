@@ -22,6 +22,7 @@
 ![](img/Tilengine-beef.gif)
 ```
 using Tilengine;
+using TLN.Types;
 using System;
 
 namespace TilengineTest
@@ -30,17 +31,18 @@ namespace TilengineTest
 	{
 		public static void Main()
 		{
-			Tilengine.Types.TLN_Tilemap foreground;
-			Tilengine.Types.TLN_Tileset tileset;
+			Tilemap foreground;
+			Tileset tileset;
 			int frame = 0;
 
 			Init(400,240,1,0,20);
 			SetLoadPath("assets/sonic");
-			foreground = LoadTilemap ("Sonic_md_fg1.tmx", null);
+			foreground = LoadTilemap("Sonic_md_fg1.tmx", null);
 			tileset = LoadTileset("Sonic_md_fg1.tsx");
-			SetLayer (0, tileset, foreground);
+			SetLayer(0, tileset, foreground);
 
 			CreateWindow(null, 0);
+			SetWindowTitle("Tilengine-Beef");
 
 			while (ProcessWindow())
 			{
