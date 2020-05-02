@@ -21,6 +21,7 @@
 ```
 using Tilengine;
 using TLN.Types;
+using TLN.Data;
 using System;
 
 namespace TilengineTest
