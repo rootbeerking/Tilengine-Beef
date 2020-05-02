@@ -19,6 +19,7 @@
 4. Write some code
 
 # Example Code
+![](img/Tilengine-beef.gif)
 ```
 using Tilengine;
 using System;
