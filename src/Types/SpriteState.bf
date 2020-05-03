@@ -1,6 +1,7 @@
-using Tilengine.Enums;
+using TLN.Enums;
+using TLN.Types;
 using System;
-namespace Tilengine.Types
+namespace TLN.Data
 {
 	[CRepr]
 	public struct SpriteState 			// State of Sprite
@@ -10,8 +11,8 @@ namespace Tilengine.Types
 		public int W;					// Actual width in screen (after scaling)
 		public int H;					// Actual height in screen (after scaling)
 		public TileFlags Flags;			// Flags
-		public TLN_Palette Palette;		// Assigned Palette	 
-		public TLN_Spriteset Spriteset;	// Assigned Spriteset	
+		public Palette Palette;		// Assigned Palette	 
+		public Spriteset Spriteset;	// Assigned Spriteset	
 		public int Index;				// Graphic index inside Spriteset 
 		public bool Enabled;			// Enabled or not 
 		public bool Collision;			// Per-Pixel Collision detection enabled or not

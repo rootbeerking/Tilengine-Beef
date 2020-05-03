@@ -1,5 +1,6 @@
 using System;
 using TLN.Enums;
+using TLN.Data;
 using TLN.Types;
 namespace Tilengine
 {
@@ -12,16 +13,8 @@ namespace Tilengine
 		/* version */
 		public const int TILENGINE_VER_MAJ = 2;
 		public const int TILENGINE_VER_MIN = 7;
-  		public const int TILENGINE_VER_REV = 6;
+  		public const int TILENGINE_VER_REV = 0;
 		public const int TILENGINE_HEADER_VERSION = ((TILENGINE_VER_MAJ << 16) | (TILENGINE_VER_MIN << 8) | TILENGINE_VER_REV);
-		
-		/* fixed point helper */
-		//typedef int fix_t;
-		public const int FIXED_BITS = 16;
-		//#define float2fix(f)	(fix)(f*(1 << FIXED_BITS))
-		//#define int2fix(i)	((int)(i) << FIXED_BITS)
-		//#define fix2int(f)	((int)(f) >> FIXED_BITS)
-		//#define fix2float(f)	(float)(f)/(1 << FIXED_BITS)
 
 		/* callbacks */
 		public delegate void VideoCallback(int scanline);
@@ -297,7 +290,7 @@ namespace Tilengine
 		// ------------------------------------------------------------------------------------
 		// // Creates a new tilemap. Make sure that the tiles[] array is has at least rows*cols items or application may crash
 		[LinkName("TLN_CreateTilemap")]
-		public static extern Tilemap CreateTilemap(int rows, int cols, TLN_Tile tiles, uint32 bgcolor, Tileset tileset);
+		public static extern Tilemap CreateTilemap(int rows, int cols, TLN.Types.Tile tiles, uint32 bgcolor, Tileset tileset);
 		// // Loads a tilemap layer from a Tiled .tmx file.
 		[LinkName("TLN_LoadTilemap")]
 		public static extern Tilemap LoadTilemap(char8* filename, char8* layername);
@@ -315,10 +308,10 @@ namespace Tilengine
 		public static extern Tileset GetTilemapTileset(Tilemap tilemap);
 		// // Gets data of a single tile inside a tilemap.
 		[LinkName("TLN_GetTilemapTile")]
-		public static extern bool GetTilemapTile(Tilemap tilemap, int row, int col, TLN_Tile tile);
+		public static extern bool GetTilemapTile(Tilemap tilemap, int row, int col, TLN.Types.Tile tile);
 		// // Sets a tile of a tilemap.
 		[LinkName("TLN_SetTilemapTile")]
-		public static extern bool SetTilemapTile(Tilemap tilemap, int row, int col, TLN_Tile tile);
+		public static extern bool SetTilemapTile(Tilemap tilemap, int row, int col, TLN.Types.Tile tile);
 		// // Copies blocks of tiles between two tilemaps.
 		[LinkName("TLN_CopyTiles")]
 		public static extern bool CopyTiles(Tilemap src, int srcrow, int srccol, int rows, int cols, Tilemap dst, int dstrow, int dstcol);

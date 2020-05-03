@@ -1,6 +1,7 @@
-using Tilengine.Enums;
+using TLN.Enums;
+using TLN.Types;
 using System;
-namespace Tilengine.Types
+namespace TLN.Data
 {
 	[CRepr]
 	public struct TileAttributes	// Tileset attributes for constructor

@@ -3,8 +3,8 @@ using System;
 namespace TLN.Types
 {
 	[CRepr]
-	public struct TLN_Bitmap
+	public struct Bitmap
 	{
-		TLN_Bitmap* Bitmap;
+		Bitmap* Bitmap;
 	}	// Opaque Bitmap reference
 }

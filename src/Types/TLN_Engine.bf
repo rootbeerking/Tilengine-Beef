@@ -1,10 +1,10 @@
-using Tilengine.Enums;
+using TLN.Enums;
 using System;
-namespace Tilengine.Types
+namespace TLN.Types
 {
 	[CRepr]
-	public struct TLN_Engine
+	public struct Engine
 	{
-		TLN_Engine* Engine;
+		Engine* Engine;
 	}	// Engine context
 }

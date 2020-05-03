@@ -1,6 +1,7 @@
 using TLN.Enums;
+using TLN.Types;
 using System;
-namespace TLN.Types
+namespace TLN.Data
 {
 	[CRepr]
 	public struct SpriteData // Data used to create Spriteset objects

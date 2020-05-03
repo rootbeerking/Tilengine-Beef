@@ -1,6 +1,7 @@
 using TLN.Enums;
+using TLN.Types;
 using System;
-namespace TLN.Types
+namespace TLN.Data
 {
 	[CRepr]
 	public struct SpriteInfo // Data returned by Spriteset.GetSpriteInfo with dimensions of the requested sprite

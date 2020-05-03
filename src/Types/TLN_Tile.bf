@@ -3,8 +3,8 @@ using System;
 namespace TLN.Types
 {
 	[CRepr, Union]
-	public struct TLN_Tile
+	public struct Tile
 	{
-		TLN_Tile* Tile;
+		Tile* Tile;
 	}	// Tile reference
 }

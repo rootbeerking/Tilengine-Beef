@@ -1,6 +1,7 @@
 using TLN.Enums;
+using TLN.Types;
 using System;
-namespace TLN.Types
+namespace TLN.Data
 {
 	[CRepr]
 	public struct TileInfo		// Data returned by Layer.GetTile about a given tile inside a background layer

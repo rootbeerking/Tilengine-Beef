@@ -3,8 +3,8 @@ using System;
 namespace TLN.Types
 {
 	[CRepr]
-	public struct TLN_ObjectList
+	public struct ObjectList
 	{
-		TLN_ObjectList* ObjectList;
+		ObjectList* ObjectList;
 	}	// Opaque Object List reference
 }

@@ -1,10 +1,10 @@
-using Tilengine.Enums;
+using TLN.Enums;
 using System;
-namespace Tilengine.Types
+namespace TLN.Types
 {
 	[CRepr]
-	public struct TLN_Tileset
+	public struct Tileset
 	{
-		TLN_Tileset* Tileset;
+		Tileset* Tileset;
 	}	// Opaque Tileset reference
 }

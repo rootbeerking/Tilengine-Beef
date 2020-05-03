@@ -1,6 +1,7 @@
 using TLN.Enums;
+using TLN.Types;
 using System;
-namespace TLN.Types
+namespace TLN.Data
 {
 	[CRepr]
 	public struct SequenceFrame	  // Data used to define each frame of an animation for Sequence objects

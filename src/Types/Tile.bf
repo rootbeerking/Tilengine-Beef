@@ -1,6 +1,6 @@
-using Tilengine.Enums;
+using TLN.Enums;
 using System;
-namespace Tilengine.Types
+namespace TLN.Data
 {
 	[CRepr, Union]
 	public struct Tile			// Tile item for Tilemap access methods

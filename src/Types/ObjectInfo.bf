@@ -1,6 +1,7 @@
-using Tilengine.Enums;
+using TLN.Enums;
+using TLN.Types;
 using System;
-namespace Tilengine.Types
+namespace TLN.Data
 {
 	[CRepr]
 	public struct ObjectInfo	// Object item info returned by TLN_GetObjectInfo()
