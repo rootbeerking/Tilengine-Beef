@@ -4,8 +4,8 @@
 
 ## TODO:
 - Make sure Callbacks in src\Tilengine.bf (Line 27-31) are done/working correctly.
-- Figure out why src\Enums\Input.bf (Line 21-24)  Beef thinks these aren't new values, and why it's "unable to implicitly cast 'int' to 'TLN.Enums.Player'"
-- Figure out why I can't pass null to certain functions as I should beable to in C. For example if I try to set a Layer using TLN.SetLayer(0, null, foreground) I get an error saying "unable to implicitly cast 'null' to 'TLN.Types.Tileset'"
+- src\Enums\Input.bf (Line 21) Figure out why Beef thinks this is a duplicate of None instead of a new value. 
+- Figure out why I can't pass null to certain functions as I should be able to in C. For example if I try to set a Layer using TLN.SetLayer(0, null, foreground) I get an error saying "unable to implicitly cast 'null' to 'TLN.Types.Tileset'"
 - Rewrite examples to Beef
 
 
