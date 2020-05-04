@@ -20,6 +20,7 @@
 ```
 using Tilengine;
 using TLN.Types;
+using TLN.Enums;
 using TLN.Data;
 using System;
 
