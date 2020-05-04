@@ -1,6 +1,6 @@
 namespace TLN.Enums
 {
-	public enum Error 	// List of possible exception Error codes
+	public enum Error : int	// List of possible exception Error codes
 	{
 		Ok,			  	// No Error
 		OutOfMemory,  	// Not enough memory

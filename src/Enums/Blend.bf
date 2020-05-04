@@ -2,7 +2,7 @@ using System;
 namespace TLN.Enums
 {
 	[AllowDuplicates]
-	public enum Blend // Layer blend modes for Layers and Sprites.
+	public enum Blend : int // Layer blend modes for Layers and Sprites.
 	{				  // Must set one of these; choice is mutually exclusive:
 	    None,		  // Disable Blending
 		Mix25,		  // Color averaging 1

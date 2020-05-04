@@ -1,6 +1,6 @@
 namespace TLN.Enums
 {
-	public enum WindowFlags	  	// List of flag values for window creation
+	public enum WindowFlags :int	  	// List of flag values for window creation
 	{						  	// Can be none or a combination of the following:
 	    Fullscreen = (1 << 0),	// Create a Fullscreen Window
 		Vsync = (1 << 1),	  	// Sync frame updates with vertical retrace

@@ -1,6 +1,6 @@
 namespace TLN.Enums
 {
-	public enum Overlay	// Overlays for CRT effect
+	public enum Overlay : int	// Overlays for CRT effect
 	{
 		None,
 		ShadowMask,

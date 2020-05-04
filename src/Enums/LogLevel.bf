@@ -1,6 +1,6 @@
 namespace TLN.Enums
 {
-	public enum LogLevel // Debug level
+	public enum LogLevel : int // Debug level
 	{
 	    None,			 // Don't print anything (default)
 		Errors,			 // Print only runtime errors
