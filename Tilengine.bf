@@ -12,11 +12,12 @@ namespace Tilengine
 
 		/* version */
 		public const int TILENGINE_VER_MAJ = 2;
-		public const int TILENGINE_VER_MIN = 7;
+		public const int TILENGINE_VER_MIN = 8;
   		public const int TILENGINE_VER_REV = 0;
 		public const int TILENGINE_HEADER_VERSION = ((TILENGINE_VER_MAJ << 16) | (TILENGINE_VER_MIN << 8) | TILENGINE_VER_REV);
 
 		/* callbacks */
+
 		public delegate void VideoCallback(int scanline);
 		public delegate uint8 BlendFunction(uint8 src, uint8 dst);
 		[Union]
@@ -648,15 +649,9 @@ namespace Tilengine
 		// // Use this function to change the palette assigned to a color cycle animation running. This is useful to combine color cycling and palette interpolation at the same time.
 		[LinkName("TLN_SetPaletteAnimationSource")]
 		public static extern bool SetPaletteAnimationSource(int index, Palette palette);
-		// // Starts a Tileset animation.
-		[LinkName("TLN_SetTilesetAnimation")]
-		public static extern bool SetTilesetAnimation(int index, int nlayer, Sequence sequence);
-		// // Starts a Tilemap animation.
-		[LinkName("TLN_SetTilemapAnimation")]
-		public static extern bool SetTilemapAnimation(int index, int nlayer, Sequence sequence);
 		// // Starts a Sprite animation.
 		[LinkName("TLN_SetSpriteAnimation")]
-		public static extern bool SetSpriteAnimation(int index, int nsprite, Sequence sequence, int loop);
+		public static extern bool SetSpriteAnimation(int nsprite, Sequence sequence, int loop);
 		// // Checks the state of the specified animation.
 		[LinkName("TLN_GetAnimationState")]
 		public static extern bool GetAnimationState(int index);
@@ -667,7 +662,9 @@ namespace Tilengine
 		[LinkName("TLN_GetAvailableAnimation")]
 		public static extern int  GetAvailableAnimation();
 		// // Disables the animation so it stops playing and returns it to the list of available animations.
-		[LinkName("TLN_DisableAnimation")]
-		public static extern bool DisableAnimation(int index);
+		[LinkName("TLN_DisablePaletteAnimation")]
+		public static extern bool DisablePaletteAnimation(int index);
+		[LinkName("TLN_DisableSpriteAnimation")]
+		public static extern bool DisableSpriteAnimation(int index);
 	}
 }
