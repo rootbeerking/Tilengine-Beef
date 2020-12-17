@@ -18,11 +18,11 @@ namespace Tilengine
 
 		/* callbacks */
 
-		public delegate void VideoCallback(int scanline);
-		public delegate uint8 BlendFunction(uint8 src, uint8 dst);
+		public function void VideoCallback(int scanline);
+		public function uint8 BlendFunction(uint8 src, uint8 dst);
 		[Union]
 		public struct SDL_Event;
-		public delegate void SDLCallback(SDL_Event callback);
+		public function void SDLCallback(SDL_Event callback);
 
 		// ------------------------------------------------------------------------------------
 		// - Setup
