@@ -1,0 +1,6 @@
+FileVersion = 1
+Dependencies = {corlib = "*", Tilengine = "*"}
+
+[Project]
+Name = "racer"
+StartupObject = "racer.Program"
